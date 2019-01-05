@@ -1,9 +1,8 @@
 'use strict';
 
 const Topping = require('../models/topping'),
+  DynamoStore = require('./dynamoStore'), 
   _ = require('lodash');
-
-const toppings = {};
 
 function initToppings (callback) {
   createTopping('Dough Crust', 'dough_crust.png', 'dough_crust.png', 1);
@@ -22,15 +21,17 @@ function initToppings (callback) {
 }
 
 function getAllToppings (callback) {
-  let tops = _.values(toppings);
-  callback(null, _.sortBy(tops, ['order']));
+  DynamoStore.getAllItems('toppings', (err, data) => {
+    const tops = data.Items;
+  });
+  callback(null, _.sortBy(tops, ['order'])); 
 }
 
 function createTopping (name, preview_image, image, order) {
   let id = name.replace(/ /g, '_').toLowerCase(),
     topping = new Topping(id, name, preview_image, image, order);
 
-  toppings[id] = topping;
+  DynamoStore.putItem('toppings', topping, (err, data) => {});
 }
 
 module.exports.getAllToppings = getAllToppings;
