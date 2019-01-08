@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('hapi');
+require('dotenv').config();
 
 const server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 3000 });

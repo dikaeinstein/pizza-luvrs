@@ -23,8 +23,12 @@ function initToppings (callback) {
 function getAllToppings (callback) {
   DynamoStore.getAllItems('toppings', (err, data) => {
     const tops = data.Items;
+    if (err) {
+      console.error(err);
+      return;
+    }
+    callback(null, _.sortBy(tops, ['order'])); 
   });
-  callback(null, _.sortBy(tops, ['order'])); 
 }
 
 function createTopping (name, preview_image, image, order) {

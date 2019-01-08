@@ -22,6 +22,11 @@ function createUser (username, passwordString, callback) {
 
 function getUser (username, callback) {
   DynamoStore.getItem('users', 'username', username, (err, data) => {
+     if (err) {
+      console.error("Unable to read item. Error JSON:", err);
+      return;
+    }
+
     callback(null, dynamoItemToUser(data.Item));
   });
 };
