@@ -2,3 +2,16 @@ language: node_js
 node_js:
 - 10.15.0
 cache: npm
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAJHYPE3NW6GHJF3SA
+  secret_access_key:
+    secure: g6zzikb0Wbuz42PfOoi6KYibcepsiXiRhVHCKrInKI1kA6EmlwiMVUWd3aGIAvFuuLZQwogk77WRyAirVg9a3+mdAD6VvvJ1TCviL8HkirNtEaj4tUV5EtZHmGHHdPkp4aq2+o2dC/X6ytNu8ZqpQUZs6Kxp4P10YjDiAf2XYBryX63MXb9s8OO87BmQRL8skmDEoK+fpZybf7MRjgjKqVk0a5V/0XPMkuoSkFgbTEy4fcAK8edevaPyE+9JDOMC0fXHZBAjD0wfJ5C8SiXcHDly6BZGu6e+S1vSmXgsiizG3gbgS5EvrXaIWkW61cT5i05Z7bEhdlPfAdiptkeILLOxAlGiXHTVgfV4e8Ce9t8qp7UcQsRw70lBf5U1W1XStaz+UXGjvzWxhtxP3BxO+nk8GaGz46ULbFbKTcbB1IC4u2gXh7ZqLIgjGIMtc8ru9jzPgILOXtEV/dHG7PLOgD5VVOR8TV/bTMUnwnFGJffxP5/naHX5UFKFAELnCX6JIZJYzhHZTvaGxNiRdfaFjVL18bi9GhIvot/sa9LVC1AwioULxL7Pa18yRdnjaCGQDuPZw5iOygEpl2N6KZ7JPcbzA1+RkNiyJsLJq4r29nxxXaeKOeLiop5pscXOxkyU9cz+84q+I7X1ns2+PnE1W/VGGDOSqQ/dqOGEP+YetLM=
+  region: eu-west-2
+  app: pizza-luvrs
+  env: pizza-luvrs-dev-v2
+  bucket_name: elasticbeanstalk-eu-west-2-867100921759
+  bucket_path: pizza-luvrs
+  on:
+    repo: dikaeinstein/pizza-luvrs
+    branch: master
