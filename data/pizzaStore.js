@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
-const database = 'pizza_luvrs';
-const host = 'pizza-db.c0jpqaayspon.eu-west-2.rds.amazonaws.com';
-const username = 'dika';
-const password = 'password';
+const database = process.env.DB_NAME;
+const host = process.env.DB_HOST;
+const username = process.env.DB_USERNAME;
+const password = process.env.DB_PASSWORD;
 const dialect = 'postgres';
 
 const pgClient = new Sequelize(database, username, password, { dialect, host });

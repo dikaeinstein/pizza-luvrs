@@ -40,7 +40,7 @@ module.exports.registerPlugins = (server, callback) => {
     });
 
     const cache = server.cache({
-      cache: 'redis',
+      cache: process.env.NODE_ENV === 'production' ? 'redis' : null,
       segment: 'sessions',
       expiresIn: 24 * 60 * 60 * 1000
     });
