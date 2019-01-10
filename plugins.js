@@ -40,6 +40,7 @@ module.exports.registerPlugins = (server, callback) => {
     });
 
     const cache = server.cache({
+      cache: 'redis',
       segment: 'sessions',
       expiresIn: 24 * 60 * 60 * 1000
     });

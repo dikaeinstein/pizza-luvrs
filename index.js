@@ -3,7 +3,12 @@
 const Hapi = require('hapi');
 require('dotenv').config();
 
-const server = new Hapi.Server();
+const server = new Hapi.Server({ cache: [{
+  name: 'redis',
+  engine: require('catbox-redis'),
+  host: 'pizza-redis-cluster.kphgvw.0001.euw2.cache.amazonaws.com',
+  partition: 'cache',
+}] });
 server.connection({ port: process.env.PORT || 3000 });
 
 function startServer() {
