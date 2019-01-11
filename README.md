@@ -8,6 +8,16 @@ Pizza Luvrs is a social network for people who love pizza. Users can create acco
 
 ![Pizza Luvrs](assets/pizza_shot.png)
 
+## Updated by Me(Dikaeinstein)
+
+While working with the course, I updated sections of the code base like:
+
+- move sensitive credentials to environment variables.
+- add a CI pipeline using travis.
+- automate deployments to elasticbeanstalk using travis.
+- update the cloudformation template to align with updated AWS resources.
+- update the AWS nodejs SDK usage to align with updated APIs.
+
 ## Known Issues
 
 None at this time.
