@@ -10,7 +10,7 @@ deploy:
   secret_access_key: $SECRETACCESSKEY
   region: eu-west-2
   app: pizza-luvrs
-  env: pizza-luvrs-dev-v2
+  env: pizza-luvrs-dev
   bucket_name: elasticbeanstalk-eu-west-2-867100921759
   bucket_path: pizza-luvrs
   on:
